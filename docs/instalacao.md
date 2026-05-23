@@ -7,7 +7,7 @@ Guia de instalação manual do **brModelo** em distribuições Linux, com integr
 Testado e validado em:
 
 - Fedora 42 Workstation (GNOME / Wayland)
-- Ubuntu e derivados
+- Debian 13
 
 ---
 

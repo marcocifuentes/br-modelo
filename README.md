@@ -24,8 +24,8 @@ O projeto documenta uma instalação manual do **brModelo** no Linux:
 
 Testado e validado em:
 
-- Fedora Workstation
-- Ubuntu e derivados
+- Fedora 42 Workstation (GNOME / Wayland)
+- Debian 13
 
 ---
 
