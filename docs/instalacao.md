@@ -10,9 +10,27 @@ Antes de iniciar a instalação, o sistema deve possuir:
 
 ## Fedora / Debian / Ubuntu
 
-- Java 21 ou superior
+- Java 21 (recomendado)
 - curl
-- ambiente gráfico Linux com suporte a XDG Desktop Entry (.desktop)
+- ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
+- suporte a XDG Desktop Entry (.desktop)
+
+---
+
+# ⚠️ Importante (execução)
+
+O brModelo é uma aplicação gráfica Java (Swing/AWT).
+
+Ele NÃO funciona em:
+
+- SSH sem X11 forwarding
+- TTY (terminal sem interface gráfica)
+- ambientes headless
+
+Requer:
+
+- sessão gráfica ativa
+- variável `DISPLAY` configurada
 
 ---
 
@@ -30,12 +48,30 @@ sudo dnf install curl java-21-openjdk -y
 
 ```bash
 sudo apt update
-sudo apt install curl default-jre -y
+sudo apt install curl openjdk-21-jre -y
 ```
 
 ---
 
-## 2.2 Baixar o brModelo
+## 2.2 Verificar Java ativo (obrigatório)
+
+Antes de continuar:
+
+```bash
+java --version
+```
+
+Se houver múltiplas versões instaladas:
+
+```bash
+sudo alternatives --config java
+```
+
+Selecione **Java 21**.
+
+---
+
+## 2.3 Baixar o brModelo
 
 ```bash
 mkdir -p "$HOME/.brModelo"
@@ -46,7 +82,7 @@ https://www.sis4.com/brModelo/brModelo.jar
 
 ---
 
-## 2.3 Adicionar ícone
+## 2.4 Adicionar ícone
 
 ```bash
 curl -fL -o "$HOME/.brModelo/brModelo.png" \
@@ -55,7 +91,17 @@ https://raw.githubusercontent.com/chcandido/brModelo/master/src/imagens/logico.p
 
 ---
 
-## 2.4 Criar launcher do sistema
+## 2.5 (Opcional) Teste de execução direta
+
+Antes de criar atalhos:
+
+```bash
+java -jar "$HOME/.brModelo/brModelo.jar"
+```
+
+---
+
+## 2.6 Criar launcher do sistema
 
 ```bash
 mkdir -p "$HOME/.local/share/applications"
@@ -77,7 +123,7 @@ EOF
 
 ---
 
-## 2.5 Tornar o launcher executável
+## 2.7 Tornar o launcher executável
 
 ```bash
 chmod +x "$HOME/.local/share/applications/brModelo.desktop"
@@ -85,7 +131,7 @@ chmod +x "$HOME/.local/share/applications/brModelo.desktop"
 
 ---
 
-## 2.6 Atualizar base de aplicativos (se necessário)
+## 2.8 Atualizar base de aplicativos (se necessário)
 
 ```bash
 update-desktop-database ~/.local/share/applications
@@ -93,13 +139,15 @@ update-desktop-database ~/.local/share/applications
 
 ---
 
-## 2.7 Executar
+## 2.9 Executar
 
-```bash
-gtk-launch brModelo
+Via menu do sistema:
+
+```text
+brModelo
 ```
 
-ou via terminal:
+Ou via terminal:
 
 ```bash
 java -jar ~/.brModelo/brModelo.jar
@@ -111,7 +159,7 @@ java -jar ~/.brModelo/brModelo.jar
 
 Este procedimento foi validado em:
 
-- Fedora 42 Workstation (GNOME / Wayland)
+- Fedora 42 / 43 Workstation (GNOME / Wayland)
 - Debian 13 (GNOME)
 - Ubuntu 26.04 LTS (GNOME)
 
@@ -119,10 +167,10 @@ Este procedimento foi validado em:
 
 # 4. Observações importantes
 
-- Este instalador não utiliza Docker ou automação
-- Depende de Java 21+ instalado no sistema
-- Requer ambiente gráfico Linux funcional
-- Requer ferramentas básicas como curl
+- Instalação manual (sem script automatizado)
+- Não utiliza Docker ou empacotamento Flatpak/Snap
+- Depende de Java 21 configurado como padrão ativo
+- Requer ambiente gráfico funcional
 
 ---
 
@@ -130,10 +178,11 @@ Este procedimento foi validado em:
 
 Este projeto é um instalador manual baseado em documentação.
 
-Ele não garante compatibilidade universal entre distribuições Linux, pois depende de:
+Não garante compatibilidade universal entre distribuições Linux, pois depende de:
 
-- versão do Java
+- versão ativa do Java (não apenas instalado)
 - ambiente gráfico (GNOME/KDE/XFCE)
+- configuração correta de `alternatives`
 - ferramentas básicas do sistema
 
 ---
@@ -142,3 +191,4 @@ Ele não garante compatibilidade universal entre distribuições Linux, pois dep
 
 - http://www.sis4.com/brModelo/index.html  
 - https://github.com/chcandido/brModelo  
+```

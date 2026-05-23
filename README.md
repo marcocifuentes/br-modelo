@@ -20,7 +20,7 @@ A instalação inclui:
 
 ## Distribuições testadas
 
-- Fedora 42 Workstation (GNOME / Wayland)
+- Fedora 42 / 43 Workstation (GNOME / Wayland)
 - Debian 13 (GNOME)
 - Ubuntu 26.04 LTS (GNOME)
 
@@ -28,9 +28,30 @@ A instalação inclui:
 
 ## Pré-requisitos
 
-- Java 21 ou superior
+- Java 21 (recomendado)
 - curl
-- ambiente gráfico Linux compatível com XDG Desktop Entry (.desktop)
+- ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
+- suporte a XDG Desktop Entry (.desktop)
+
+---
+
+## ⚠️ Compatibilidade do Java
+
+Recomendado: **Java 21**
+
+Versões mais recentes (ex: Java 25) podem causar problemas com aplicações Swing/AWT em algumas distribuições Linux.
+
+Verifique a versão ativa:
+
+```bash
+java --version
+```
+
+Se necessário, ajuste a versão padrão:
+
+```bash
+sudo alternatives --config java
+```
 
 ---
 
@@ -50,9 +71,17 @@ Este projeto é um instalador manual baseado em documentação.
 
 Não garante compatibilidade universal entre distribuições Linux. O funcionamento depende de:
 
-- versão do Java
+- versão do Java ativa no sistema
 - ambiente gráfico (GNOME/KDE/XFCE)
-- ferramentas básicas do sistema
+- disponibilidade de ferramentas básicas do sistema
+
+---
+
+## Limitações importantes
+
+- Não funciona em SSH sem X11 forwarding
+- Não funciona em TTY (terminal puro sem GUI)
+- Requer sessão gráfica ativa para aplicações Swing/AWT
 
 ---
 
@@ -60,8 +89,6 @@ Não garante compatibilidade universal entre distribuições Linux. O funcioname
 
 - http://www.sis4.com/brModelo/index.html  
 - https://github.com/chcandido/brModelo  
-
----
 
 ---
 
@@ -76,16 +103,28 @@ It includes:
 - desktop launcher integration
 - menu integration
 
+---
+
 ## Tested distributions
 
-- Fedora 42 Workstation
+- Fedora 42 / 43 Workstation
 - Debian 13
 - Ubuntu 26.04 LTS
 
+---
+
 ## Requirements
 
-- Java 21+
+- Java 21 (recommended)
 - curl
-- Linux desktop environment with XDG support (.desktop files)
+- active Linux desktop environment (GNOME/KDE/XFCE)
+- XDG desktop entry support (.desktop files)
+
+---
+
+## Notes
+
+This installer is manual and does not guarantee universal compatibility across all Linux environments.
 
 See full instructions in `docs/instalacao.md`.
+```
