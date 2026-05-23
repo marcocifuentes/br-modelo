@@ -1,56 +1,42 @@
 # brModelo Linux Installer
 
-🇧🇷 **Instalador manual do brModelo para Linux com integração ao menu de aplicativos**
-
-🇺🇸 **Manual Linux installer for brModelo with desktop integration**
-
-Este repositório fornece um guia simples para instalar o **brModelo** no Linux, incluindo integração ao menu de aplicativos do sistema.
-
-This repository provides a simple guide to install **brModelo** on Linux, including desktop menu integration.
+Instalador manual do brModelo para Linux com integração ao menu de aplicativos.
 
 ---
 
-## O que este projeto faz / What this project does
+## Descrição
 
-### 🇧🇷 Português (Brasil)
+Este repositório fornece um guia simples e validado para instalação do **brModelo** no Linux.
 
-O projeto documenta uma instalação manual do **brModelo** no Linux:
+A instalação inclui:
 
 - download do `brModelo.jar`
-- organização dos arquivos do aplicativo
+- organização dos arquivos locais
 - configuração de ícone
 - criação de launcher `.desktop`
 - integração ao menu de aplicativos
 
-Testado e validado em:
+---
+
+## Distribuições testadas
 
 - Fedora 42 Workstation (GNOME / Wayland)
-- Debian 13
+- Debian 13 (GNOME)
+- Ubuntu 26.04 LTS (GNOME)
 
 ---
 
-### 🇺🇸 English
+## Pré-requisitos
 
-This project documents a manual Linux installation for **brModelo**:
-
-- download of `brModelo.jar`
-- application file organization
-- icon setup
-- `.desktop` launcher creation
-- desktop menu integration
-
-Tested and validated on:
-
-- Fedora Workstation
-- Ubuntu-based distributions
+- Java 21 ou superior
+- curl
+- ambiente gráfico Linux compatível com XDG Desktop Entry (.desktop)
 
 ---
 
-## Instalação / Installation
+## Instalação
 
 Consulte o guia completo:
-
-See the complete guide:
 
 ```text
 docs/instalacao.md
@@ -58,27 +44,48 @@ docs/instalacao.md
 
 ---
 
-## Fontes / Sources
+## Escopo
 
-Site oficial do brModelo:
+Este projeto é um instalador manual baseado em documentação.
 
-http://www.sis4.com/brModelo/index.html
+Não garante compatibilidade universal entre distribuições Linux. O funcionamento depende de:
 
-Código-fonte comunitário:
-
-https://github.com/chcandido/brModelo
-
----
-
-## Ambiente validado / Validated environment
-
-- Fedora 42 Workstation (GNOME / Wayland)
-- Ubuntu e derivados
+- versão do Java
+- ambiente gráfico (GNOME/KDE/XFCE)
+- ferramentas básicas do sistema
 
 ---
 
-## Licença / License
+## Fontes
 
-Este projeto está licenciado sob a licença MIT.
+- http://www.sis4.com/brModelo/index.html  
+- https://github.com/chcandido/brModelo  
 
-This project is licensed under the MIT License.
+---
+
+---
+
+# Summary (English)
+
+This repository provides a manual and validated installation guide for **brModelo** on Linux.
+
+It includes:
+
+- downloading the `brModelo.jar`
+- setting up local application structure
+- desktop launcher integration
+- menu integration
+
+## Tested distributions
+
+- Fedora 42 Workstation
+- Debian 13
+- Ubuntu 26.04 LTS
+
+## Requirements
+
+- Java 21+
+- curl
+- Linux desktop environment with XDG support (.desktop files)
+
+See full instructions in `docs/instalacao.md`.

@@ -1,90 +1,65 @@
-# Instalação do brModelo no Linux
+# brModelo Linux Installer
 
-Guia de instalação manual do **brModelo** em distribuições Linux, com integração ao menu de aplicativos.
-
-## Ambiente validado
-
-Testado e validado em:
-
-- Fedora 42 Workstation (GNOME / Wayland)
-- Debian 13
+Guia manual de instalação do **brModelo** no Linux com integração ao menu de aplicativos.
 
 ---
 
-## Pré-requisito: Java com suporte gráfico
+# 1. Pré-requisitos
 
-O **brModelo** é uma aplicação Java desktop e requer suporte gráfico (GUI).
+Antes de iniciar a instalação, o sistema deve possuir:
+
+## Fedora / Debian / Ubuntu
+
+- Java 21 ou superior
+- curl
+- ambiente gráfico Linux com suporte a XDG Desktop Entry (.desktop)
+
+---
+
+# 2. Instalação
+
+## 2.1 Instalar dependências
 
 ### Fedora
 
-Instale o OpenJDK:
-
 ```bash
-sudo dnf install java-21-openjdk
+sudo dnf install curl java-21-openjdk -y
 ```
 
-### Ubuntu e derivados
+### Debian / Ubuntu
 
 ```bash
-sudo apt install default-jre
-```
-
----
-
-## 1. Baixar o executável
-
-```bash
-curl -fLO https://www.sis4.com/brModelo/brModelo.jar
+sudo apt update
+sudo apt install curl default-jre -y
 ```
 
 ---
 
-## 2. Criar diretório da aplicação
+## 2.2 Baixar o brModelo
 
 ```bash
-mkdir -p "$HOME/.brModelo" \
-&& mv brModelo.jar "$HOME/.brModelo/"
+mkdir -p "$HOME/.brModelo"
+
+curl -fL -o "$HOME/.brModelo/brModelo.jar" \
+https://www.sis4.com/brModelo/brModelo.jar
 ```
 
 ---
 
-## 3. Testar execução do brModelo
-
-Antes de continuar, valide se o aplicativo abre corretamente:
+## 2.3 Adicionar ícone
 
 ```bash
-java -jar "$HOME/.brModelo/brModelo.jar"
-```
-
-Se abrir normalmente:
-
-```text
-OK → continuar
-```
-
----
-
-## 4. Baixar ícone
-
-```bash
-curl -fL \
--o "$HOME/.brModelo/brModelo.png" \
+curl -fL -o "$HOME/.brModelo/brModelo.png" \
 https://raw.githubusercontent.com/chcandido/brModelo/master/src/imagens/logico.png
 ```
 
 ---
 
-## 5. Criar launcher no menu de aplicativos
-
-Criar diretório:
+## 2.4 Criar launcher do sistema
 
 ```bash
 mkdir -p "$HOME/.local/share/applications"
-```
 
-Criar launcher:
-
-```bash
 cat > "$HOME/.local/share/applications/brModelo.desktop" <<EOF
 [Desktop Entry]
 Version=1.0
@@ -100,7 +75,9 @@ Categories=Development;Education;
 EOF
 ```
 
-Tornar executável:
+---
+
+## 2.5 Tornar o launcher executável
 
 ```bash
 chmod +x "$HOME/.local/share/applications/brModelo.desktop"
@@ -108,87 +85,60 @@ chmod +x "$HOME/.local/share/applications/brModelo.desktop"
 
 ---
 
-## 6. Validar launcher
+## 2.6 Atualizar base de aplicativos (se necessário)
 
-Teste via terminal:
+```bash
+update-desktop-database ~/.local/share/applications
+```
+
+---
+
+## 2.7 Executar
 
 ```bash
 gtk-launch brModelo
 ```
 
-Se abrir corretamente:
-
-```text
-OK → integração concluída
-```
-
-Depois pesquise por **brModelo** no menu de aplicativos do sistema.
-
----
-
-## Troubleshooting
-
-### `HeadlessException`
-
-Se ocorrer erro semelhante a:
-
-```text
-No X11 DISPLAY variable was set,
-or no headful library support was found
-```
-
-Verifique se o Java desktop está instalado.
-
-No Fedora:
+ou via terminal:
 
 ```bash
-dnf list --installed | grep openjdk
-```
-
-Esperado:
-
-```text
-java-21-openjdk
-java-21-openjdk-headless
-```
-
-Se necessário:
-
-```bash
-sudo dnf install java-21-openjdk
-```
-
-Também confirme se o comando está sendo executado dentro de uma sessão gráfica Linux (GNOME/KDE/XFCE) e não em:
-
-- TTY
-- SSH sem forwarding gráfico
-- terminal sem `DISPLAY`
-
-Validação:
-
-```bash
-echo $DISPLAY
-echo $XDG_SESSION_TYPE
-```
-
-Exemplo esperado:
-
-```text
-:0
-wayland
+java -jar ~/.brModelo/brModelo.jar
 ```
 
 ---
 
-## Resultado esperado
+# 3. Ambiente testado
 
-Após concluir a instalação:
+Este procedimento foi validado em:
 
-- brModelo disponível no menu de aplicativos
-- execução via:
+- Fedora 42 Workstation (GNOME / Wayland)
+- Debian 13 (GNOME)
+- Ubuntu 26.04 LTS (GNOME)
 
-```bash
-gtk-launch brModelo
-```
+---
 
-- launcher persistente no ambiente desktop
+# 4. Observações importantes
+
+- Este instalador não utiliza Docker ou automação
+- Depende de Java 21+ instalado no sistema
+- Requer ambiente gráfico Linux funcional
+- Requer ferramentas básicas como curl
+
+---
+
+# 5. Escopo
+
+Este projeto é um instalador manual baseado em documentação.
+
+Ele não garante compatibilidade universal entre distribuições Linux, pois depende de:
+
+- versão do Java
+- ambiente gráfico (GNOME/KDE/XFCE)
+- ferramentas básicas do sistema
+
+---
+
+# 6. Fonte
+
+- http://www.sis4.com/brModelo/index.html  
+- https://github.com/chcandido/brModelo  
