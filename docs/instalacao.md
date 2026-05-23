@@ -1,38 +1,37 @@
-# 🔧 Instalação Manual do brModelo no Linux
+# Instalação do brModelo no Linux
 
-Guia para instalação manual do **brModelo** em distribuições Linux, com integração ao menu de aplicativos e opção de atalho na área de trabalho.
+Guia de instalação manual do **brModelo** em distribuições Linux, com integração ao menu de aplicativos.
+
+## Ambiente validado
+
+Testado e validado em:
+
+- Fedora 42 Workstation (GNOME / Wayland)
+- Ubuntu e derivados
 
 ---
 
-## 📋 Pré-requisitos
+## Pré-requisito: Java com suporte gráfico
 
-Verifique se o Java está instalado:
+O **brModelo** é uma aplicação Java desktop e requer suporte gráfico (GUI).
+
+### Fedora
+
+Instale o OpenJDK:
 
 ```bash
-java --version
+sudo dnf install java-21-openjdk
 ```
 
-Se o comando falhar, instale uma versão do Java (JRE/JDK) pela sua distribuição antes de continuar.
-
-Exemplo:
-
-### Ubuntu / Debian
+### Ubuntu e derivados
 
 ```bash
 sudo apt install default-jre
 ```
 
-### Fedora
-
-```bash
-sudo dnf install java-latest-openjdk
-```
-
 ---
 
 ## 1. Baixar o executável
-
-Baixe o arquivo oficial do **brModelo**:
 
 ```bash
 curl -fLO https://www.sis4.com/brModelo/brModelo.jar
@@ -40,9 +39,7 @@ curl -fLO https://www.sis4.com/brModelo/brModelo.jar
 
 ---
 
-## 2. Criar diretório da aplicação e mover arquivo
-
-Crie o diretório oculto do brModelo e mova o executável:
+## 2. Criar diretório da aplicação
 
 ```bash
 mkdir -p "$HOME/.brModelo" \
@@ -51,45 +48,59 @@ mkdir -p "$HOME/.brModelo" \
 
 ---
 
-## 3. Baixar ícone da aplicação
+## 3. Testar execução do brModelo
 
-Baixe o ícone utilizado no menu do sistema:
+Antes de continuar, valide se o aplicativo abre corretamente:
 
 ```bash
-curl -fL \
--o "$HOME/.brModelo/brModelo.png" \
-https://github.com/chcandido/brModelo/raw/master/src/imagens/logico.png
+java -jar "$HOME/.brModelo/brModelo.jar"
+```
+
+Se abrir normalmente:
+
+```text
+OK → continuar
 ```
 
 ---
 
-## 4. Criar atalho no menu de aplicativos
+## 4. Baixar ícone
 
-Crie o diretório local de aplicações (caso ainda não exista):
+```bash
+curl -fL \
+-o "$HOME/.brModelo/brModelo.png" \
+https://raw.githubusercontent.com/chcandido/brModelo/master/src/imagens/logico.png
+```
+
+---
+
+## 5. Criar launcher no menu de aplicativos
+
+Criar diretório:
 
 ```bash
 mkdir -p "$HOME/.local/share/applications"
 ```
 
-Crie o arquivo `.desktop` para integração com o menu:
+Criar launcher:
 
 ```bash
 cat > "$HOME/.local/share/applications/brModelo.desktop" <<EOF
 [Desktop Entry]
 Version=1.0
 Name=brModelo
+Comment=Ferramenta para MER
 Exec=java -jar $HOME/.brModelo/brModelo.jar
 Icon=$HOME/.brModelo/brModelo.png
-Type=Application
-Comment=Ferramenta para modelagem entidade-relacionamento (MER)
 Path=$HOME/.brModelo
+Type=Application
 Terminal=false
 StartupNotify=true
 Categories=Development;Education;
 EOF
 ```
 
-Torne o atalho executável:
+Tornar executável:
 
 ```bash
 chmod +x "$HOME/.local/share/applications/brModelo.desktop"
@@ -97,41 +108,87 @@ chmod +x "$HOME/.local/share/applications/brModelo.desktop"
 
 ---
 
-## 5. Criar atalho na área de trabalho (Opcional)
+## 6. Validar launcher
 
-Copie o atalho para a área de trabalho do usuário:
+Teste via terminal:
 
 ```bash
-cp "$HOME/.local/share/applications/brModelo.desktop" \
-"$(xdg-user-dir DESKTOP)/" \
-&& chmod +x "$(xdg-user-dir DESKTOP)/brModelo.desktop"
+gtk-launch brModelo
+```
+
+Se abrir corretamente:
+
+```text
+OK → integração concluída
+```
+
+Depois pesquise por **brModelo** no menu de aplicativos do sistema.
+
+---
+
+## Troubleshooting
+
+### `HeadlessException`
+
+Se ocorrer erro semelhante a:
+
+```text
+No X11 DISPLAY variable was set,
+or no headful library support was found
+```
+
+Verifique se o Java desktop está instalado.
+
+No Fedora:
+
+```bash
+dnf list --installed | grep openjdk
+```
+
+Esperado:
+
+```text
+java-21-openjdk
+java-21-openjdk-headless
+```
+
+Se necessário:
+
+```bash
+sudo dnf install java-21-openjdk
+```
+
+Também confirme se o comando está sendo executado dentro de uma sessão gráfica Linux (GNOME/KDE/XFCE) e não em:
+
+- TTY
+- SSH sem forwarding gráfico
+- terminal sem `DISPLAY`
+
+Validação:
+
+```bash
+echo $DISPLAY
+echo $XDG_SESSION_TYPE
+```
+
+Exemplo esperado:
+
+```text
+:0
+wayland
 ```
 
 ---
 
-## ✅ Resultado esperado
+## Resultado esperado
 
 Após concluir a instalação:
 
-- O **brModelo** estará disponível no menu de aplicativos.
-- Opcionalmente, haverá um atalho na área de trabalho.
-- O programa poderá ser iniciado sem abrir terminal.
+- brModelo disponível no menu de aplicativos
+- execução via:
 
----
+```bash
+gtk-launch brModelo
+```
 
-## 🧪 Distribuições testadas
-
-- Ubuntu e derivados
-- Fedora e derivados
-
----
-
-## 🔗 Fontes e referências
-
-Site oficial do brModelo:
-
-https://www.sis4.com/brModelo/
-
-Código-fonte / referência comunitária:
-
-https://github.com/chcandido/brModelo
+- launcher persistente no ambiente desktop

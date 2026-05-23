@@ -1,53 +1,56 @@
 # brModelo Linux Installer
 
-Guia de instalação manual do **brModelo** para Linux, incluindo integração com menu de aplicativos (`.desktop`) e opção de atalho na área de trabalho.
+🇧🇷 **Instalador manual do brModelo para Linux com integração ao menu de aplicativos**
 
-Este repositório documenta um procedimento simples, reproduzível e validado para executar o **brModelo** em distribuições Linux modernas.
+🇺🇸 **Manual Linux installer for brModelo with desktop integration**
 
----
+Este repositório fornece um guia simples para instalar o **brModelo** no Linux, incluindo integração ao menu de aplicativos do sistema.
 
-## 📌 O que este repositório resolve
-
-O **brModelo** é distribuído como um arquivo `.jar` Java e não possui instalador nativo para Linux.
-
-Este guia ajuda a:
-
-- baixar e organizar o executável
-- integrar o aplicativo ao menu do sistema
-- criar um atalho opcional na área de trabalho
-- manter uma instalação simples e reproduzível
+This repository provides a simple guide to install **brModelo** on Linux, including desktop menu integration.
 
 ---
 
-## 🖥️ Distribuições testadas
+## O que este projeto faz / What this project does
 
-Validado em:
+### 🇧🇷 Português (Brasil)
 
+O projeto documenta uma instalação manual do **brModelo** no Linux:
+
+- download do `brModelo.jar`
+- organização dos arquivos do aplicativo
+- configuração de ícone
+- criação de launcher `.desktop`
+- integração ao menu de aplicativos
+
+Testado e validado em:
+
+- Fedora Workstation
 - Ubuntu e derivados
-- Fedora e derivados
-
-Outras distribuições Linux podem funcionar, desde que possuam:
-
-- Java instalado
-- suporte a arquivos `.desktop`
 
 ---
 
-## 📋 Pré-requisito
+### 🇺🇸 English
 
-Verifique se o Java está instalado:
+This project documents a manual Linux installation for **brModelo**:
 
-```bash
-java --version
-```
+- download of `brModelo.jar`
+- application file organization
+- icon setup
+- `.desktop` launcher creation
+- desktop menu integration
 
-Se o comando falhar, instale uma versão do Java (JRE/JDK) pela sua distribuição antes de continuar.
+Tested and validated on:
+
+- Fedora Workstation
+- Ubuntu-based distributions
 
 ---
 
-## 🚀 Instalação
+## Instalação / Installation
 
-Siga o procedimento completo documentado em:
+Consulte o guia completo:
+
+See the complete guide:
 
 ```text
 docs/instalacao.md
@@ -55,34 +58,27 @@ docs/instalacao.md
 
 ---
 
-## 🧪 Resultado esperado
+## Fontes / Sources
 
-Após concluir a instalação:
+Site oficial do brModelo:
 
-- brModelo disponível no menu de aplicativos
-- execução sem terminal
-- atalho opcional na área de trabalho
+http://www.sis4.com/brModelo/index.html
 
----
-
-## ⚠️ Escopo do projeto
-
-Este repositório:
-
-- não instala Java automaticamente
-- não gera pacotes `.deb`, `.rpm` ou Flatpak
-- não altera configurações do sistema fora do ambiente do usuário
-
-O objetivo é manter uma instalação simples, transparente e reproduzível.
-
----
-
-## 🔗 Referências
-
-Projeto oficial:
-
-https://www.sis4.com/brModelo/
-
-Código-fonte / referência comunitária:
+Código-fonte comunitário:
 
 https://github.com/chcandido/brModelo
+
+---
+
+## Ambiente validado / Validated environment
+
+- Fedora 42 Workstation (GNOME / Wayland)
+- Ubuntu e derivados
+
+---
+
+## Licença / License
+
+Este projeto está licenciado sob a licença MIT.
+
+This project is licensed under the MIT License.
