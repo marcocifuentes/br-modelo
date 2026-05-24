@@ -91,12 +91,22 @@ O funcionamento pode variar conforme:
 * depende de Java configurado corretamente
 
 ---
+## Créditos
 
-## Fontes
+O **brModelo** é um software desenvolvido por terceiros.
 
-* http://www.sis4.com/brModelo/index.html
-* https://github.com/chcandido/brModelo
+Este repositório **não mantém, modifica ou distribui o código-fonte do brModelo**, apenas documenta um processo manual de instalação e integração no Linux.
 
+Projeto original do brModelo:
+
+* Site oficial: http://www.sis4.com/brModelo/index.html
+* Repositório comunitário: https://github.com/chcandido/brModelo
+
+Objetivo deste repositório:
+
+* documentar uma instalação manual validada no Linux
+* facilitar a integração ao menu de aplicativos
+* registrar troubleshooting e compatibilidade testada
 ---
 
 # Summary (English)
