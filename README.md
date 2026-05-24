@@ -31,15 +31,31 @@ A instalação inclui:
 - Java 21 (recomendado)
 - curl
 - ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
-- suporte a XDG Desktop Entry (.desktop)
+- suporte a XDG Desktop Entry (`.desktop`)
 
 ---
 
-## ⚠️ Compatibilidade do Java
+## Documentação
 
-Recomendado: **Java 21**
+### Instalação
 
-Versões mais recentes (ex: Java 25) podem causar problemas com aplicações Swing/AWT em algumas distribuições Linux.
+```text
+docs/instalacao.md
+```
+
+### Troubleshooting
+
+```text
+docs/troubleshooting.md
+```
+
+---
+
+## Compatibilidade
+
+O projeto foi validado com **Java 21**.
+
+Versões mais recentes do Java podem exigir ajustes dependendo da distribuição Linux e ambiente gráfico.
 
 Verifique a versão ativa:
 
@@ -47,63 +63,47 @@ Verifique a versão ativa:
 java --version
 ```
 
-Se necessário, ajuste a versão padrão:
-
-```bash
-sudo alternatives --config java
-```
-
----
-
-## Instalação
-
-Consulte o guia completo:
-
-```text
-docs/instalacao.md
-```
-
 ---
 
 ## Escopo
 
-Este projeto é um instalador manual baseado em documentação.
+Este projeto documenta um processo manual de instalação do **brModelo** no Linux.
 
-Não garante compatibilidade universal entre distribuições Linux. O funcionamento depende de:
+O funcionamento pode variar conforme:
 
-- versão do Java ativa no sistema
+- versão ativa do Java
 - ambiente gráfico (GNOME/KDE/XFCE)
-- disponibilidade de ferramentas básicas do sistema
+- configuração do sistema
 
 ---
 
-## Limitações importantes
+## Limitações conhecidas
 
-- Não funciona em SSH sem X11 forwarding
-- Não funciona em TTY (terminal puro sem GUI)
-- Requer sessão gráfica ativa para aplicações Swing/AWT
+- requer ambiente gráfico ativo
+- não funciona em TTY (terminal puro)
+- não funciona em SSH sem X11 forwarding
+- depende de Java configurado corretamente
 
 ---
 
 ## Fontes
 
 - http://www.sis4.com/brModelo/index.html  
-- https://github.com/chcandido/brModelo  
+- https://github.com/chcandido/brModelo
 
 ---
 
 # Summary (English)
 
-This repository provides a manual and validated installation guide for **brModelo** on Linux.
+This repository provides a validated manual installation guide for **brModelo** on Linux.
 
 It includes:
 
-- downloading the `brModelo.jar`
-- setting up local application structure
-- desktop launcher integration
-- menu integration
-
----
+- `brModelo.jar` installation
+- local application structure
+- desktop launcher setup
+- desktop menu integration
+- troubleshooting documentation
 
 ## Tested distributions
 
@@ -111,20 +111,23 @@ It includes:
 - Debian 13
 - Ubuntu 26.04 LTS
 
----
-
 ## Requirements
 
 - Java 21 (recommended)
 - curl
-- active Linux desktop environment (GNOME/KDE/XFCE)
-- XDG desktop entry support (.desktop files)
+- active Linux desktop environment
+- XDG Desktop Entry support (`.desktop`)
 
----
+## Documentation
 
-## Notes
+Installation guide:
 
-This installer is manual and does not guarantee universal compatibility across all Linux environments.
+```text
+docs/instalacao.md
+```
 
-See full instructions in `docs/instalacao.md`.
+Troubleshooting guide:
+
+```text
+docs/troubleshooting.md
 ```
