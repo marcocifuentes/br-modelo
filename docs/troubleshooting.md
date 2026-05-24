@@ -31,10 +31,10 @@ O brModelo é uma aplicação gráfica Java (Swing/AWT) e requer sessão gráfic
 
 O erro normalmente ocorre quando:
 
-- terminal TTY (sem GUI)
-- SSH sem X11 forwarding
-- ambiente headless
-- sessão gráfica não iniciada
+* terminal TTY (sem GUI)
+* SSH sem X11 forwarding
+* ambiente headless
+* sessão gráfica não iniciada
 
 ## Diagnóstico
 
@@ -49,14 +49,14 @@ Resultado esperado:
 
 ```text
 DISPLAY=:0
-wayland
+XDG_SESSION_TYPE=wayland
 ```
 
 ou
 
 ```text
 DISPLAY=:0
-x11
+XDG_SESSION_TYPE=x11
 ```
 
 ---
@@ -77,8 +77,16 @@ Java 21
 
 Se houver múltiplas versões instaladas:
 
+### Fedora
+
 ```bash
 sudo alternatives --config java
+```
+
+### Debian / Ubuntu
+
+```bash
+sudo update-alternatives --config java
 ```
 
 Selecione:
@@ -89,7 +97,7 @@ java-21-openjdk
 
 ---
 
-# 4. Fedora usando Java errado
+# 4. Fedora usando Java diferente do validado
 
 Problema observado:
 
@@ -98,7 +106,7 @@ java-25-openjdk ativo
 java-21-openjdk instalado
 ```
 
-Nesse cenário, o sistema pode continuar executando uma versão incompatível.
+Nesse cenário, o sistema pode continuar executando uma versão não validada ou potencialmente incompatível.
 
 Confirme:
 
@@ -126,7 +134,7 @@ Can't load library: libawt_xawt.so
 
 ## Solução
 
-Reinstalar Java 21:
+Reinstalar Java 21.
 
 ### Fedora
 
@@ -150,7 +158,7 @@ java --version
 
 # 6. Launcher (.desktop) não aparece no menu
 
-Atualize base local:
+Atualize a base local:
 
 ```bash
 update-desktop-database ~/.local/share/applications
@@ -183,7 +191,7 @@ Exemplo esperado:
 ```text
 openjdk 21.x
 DISPLAY=:0
-wayland
+XDG_SESSION_TYPE=wayland
 /usr/lib/jvm/java-21-openjdk/bin/java
 ```
 
@@ -193,7 +201,7 @@ wayland
 
 O brModelo:
 
-- requer ambiente gráfico ativo
-- não funciona em TTY puro
-- não funciona em ambiente headless
-- pode exigir ajuste manual da versão padrão do Java
+* requer ambiente gráfico ativo
+* não funciona em TTY puro
+* não funciona em ambiente headless
+* pode exigir ajuste manual da versão ativa do Java

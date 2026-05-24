@@ -10,10 +10,10 @@ Antes de iniciar a instalação, o sistema deve possuir:
 
 ## Fedora / Debian / Ubuntu
 
-- Java 21 (recomendado)
-- curl
-- ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
-- suporte a XDG Desktop Entry (.desktop)
+* Java 21 (recomendado)
+* curl
+* ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
+* suporte a XDG Desktop Entry (`.desktop`)
 
 ---
 
@@ -23,14 +23,13 @@ O brModelo é uma aplicação gráfica Java (Swing/AWT).
 
 Ele NÃO funciona em:
 
-- SSH sem X11 forwarding
-- TTY (terminal sem interface gráfica)
-- ambientes headless
+* SSH sem X11 forwarding
+* TTY (terminal sem interface gráfica)
+* ambientes headless
 
 Requer:
 
-- sessão gráfica ativa
-- variável `DISPLAY` configurada
+* sessão gráfica Linux ativa (Wayland ou X11)
 
 ---
 
@@ -53,7 +52,7 @@ sudo apt install curl openjdk-21-jre -y
 
 ---
 
-## 2.2 Verificar Java ativo (obrigatório)
+## 2.2 Verificar Java ativo (recomendado)
 
 Antes de continuar:
 
@@ -63,8 +62,16 @@ java --version
 
 Se houver múltiplas versões instaladas:
 
+### Fedora
+
 ```bash
 sudo alternatives --config java
+```
+
+### Debian / Ubuntu
+
+```bash
+sudo update-alternatives --config java
 ```
 
 Selecione **Java 21**.
@@ -159,18 +166,18 @@ java -jar ~/.brModelo/brModelo.jar
 
 Este procedimento foi validado em:
 
-- Fedora 42 / 43 Workstation (GNOME / Wayland)
-- Debian 13 (GNOME)
-- Ubuntu 26.04 LTS (GNOME)
+* Fedora 42 / 43 Workstation (GNOME / Wayland)
+* Debian 13 (GNOME)
+* Ubuntu 26.04 LTS (GNOME)
 
 ---
 
 # 4. Observações importantes
 
-- Instalação manual (sem script automatizado)
-- Não utiliza Docker ou empacotamento Flatpak/Snap
-- Depende de Java 21 configurado como padrão ativo
-- Requer ambiente gráfico funcional
+* Instalação manual (sem script automatizado)
+* Não utiliza Docker ou empacotamento Flatpak/Snap
+* Java 21 é a versão recomendada e validada
+* Requer ambiente gráfico Linux funcional
 
 ---
 
@@ -180,15 +187,14 @@ Este projeto é um instalador manual baseado em documentação.
 
 Não garante compatibilidade universal entre distribuições Linux, pois depende de:
 
-- versão ativa do Java (não apenas instalado)
-- ambiente gráfico (GNOME/KDE/XFCE)
-- configuração correta de `alternatives`
-- ferramentas básicas do sistema
+* versão ativa do Java
+* ambiente gráfico (GNOME/KDE/XFCE)
+* configuração do sistema
+* ferramentas básicas disponíveis
 
 ---
 
 # 6. Fonte
 
-- http://www.sis4.com/brModelo/index.html  
-- https://github.com/chcandido/brModelo  
-```
+* http://www.sis4.com/brModelo/index.html
+* https://github.com/chcandido/brModelo

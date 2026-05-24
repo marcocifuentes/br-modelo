@@ -10,28 +10,28 @@ Este repositório fornece um guia simples e validado para instalação do **brMo
 
 A instalação inclui:
 
-- download do `brModelo.jar`
-- organização dos arquivos locais
-- configuração de ícone
-- criação de launcher `.desktop`
-- integração ao menu de aplicativos
+* download do `brModelo.jar`
+* organização dos arquivos locais
+* configuração de ícone
+* criação de launcher `.desktop`
+* integração ao menu de aplicativos
 
 ---
 
 ## Distribuições testadas
 
-- Fedora 42 / 43 Workstation (GNOME / Wayland)
-- Debian 13 (GNOME)
-- Ubuntu 26.04 LTS (GNOME)
+* Fedora 42 / 43 Workstation (GNOME / Wayland)
+* Debian 13 (GNOME)
+* Ubuntu 26.04 LTS (GNOME)
 
 ---
 
 ## Pré-requisitos
 
-- Java 21 (recomendado)
-- curl
-- ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
-- suporte a XDG Desktop Entry (`.desktop`)
+* Java 21 (recomendado)
+* curl
+* ambiente gráfico Linux ativo (GNOME/KDE/XFCE)
+* suporte a XDG Desktop Entry (`.desktop`)
 
 ---
 
@@ -47,6 +47,12 @@ docs/instalacao.md
 
 ```text
 docs/troubleshooting.md
+```
+
+### Changelog
+
+```text
+CHANGELOG.md
 ```
 
 ---
@@ -71,25 +77,25 @@ Este projeto documenta um processo manual de instalação do **brModelo** no Lin
 
 O funcionamento pode variar conforme:
 
-- versão ativa do Java
-- ambiente gráfico (GNOME/KDE/XFCE)
-- configuração do sistema
+* versão ativa do Java
+* ambiente gráfico (GNOME/KDE/XFCE)
+* configuração do sistema
 
 ---
 
 ## Limitações conhecidas
 
-- requer ambiente gráfico ativo
-- não funciona em TTY (terminal puro)
-- não funciona em SSH sem X11 forwarding
-- depende de Java configurado corretamente
+* requer ambiente gráfico ativo
+* não funciona em TTY (terminal puro)
+* não funciona em SSH sem X11 forwarding
+* depende de Java configurado corretamente
 
 ---
 
 ## Fontes
 
-- http://www.sis4.com/brModelo/index.html  
-- https://github.com/chcandido/brModelo
+* http://www.sis4.com/brModelo/index.html
+* https://github.com/chcandido/brModelo
 
 ---
 
@@ -99,24 +105,24 @@ This repository provides a validated manual installation guide for **brModelo** 
 
 It includes:
 
-- `brModelo.jar` installation
-- local application structure
-- desktop launcher setup
-- desktop menu integration
-- troubleshooting documentation
+* `brModelo.jar` installation
+* local application structure
+* desktop launcher setup
+* desktop menu integration
+* troubleshooting documentation
 
 ## Tested distributions
 
-- Fedora 42 / 43 Workstation
-- Debian 13
-- Ubuntu 26.04 LTS
+* Fedora 42 / 43 Workstation
+* Debian 13
+* Ubuntu 26.04 LTS
 
 ## Requirements
 
-- Java 21 (recommended)
-- curl
-- active Linux desktop environment
-- XDG Desktop Entry support (`.desktop`)
+* Java 21 (recommended)
+* curl
+* active Linux desktop environment
+* XDG Desktop Entry support (`.desktop`)
 
 ## Documentation
 
@@ -130,4 +136,10 @@ Troubleshooting guide:
 
 ```text
 docs/troubleshooting.md
+```
+
+Changelog:
+
+```text
+CHANGELOG.md
 ```
